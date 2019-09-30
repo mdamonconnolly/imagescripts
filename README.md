@@ -4,3 +4,4 @@ Basic scripts to operate on images
 - Resizer [ not done ]
 - X/Y flip [ not done ]
 - Invert colours? [ not done ]
+- TKinter UI [ not done ]
