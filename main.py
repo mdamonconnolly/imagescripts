@@ -1,26 +1,21 @@
-import os, glob
+import os
 from PIL import Image
-import filetype
-import pathlib
 
-dir = os.listdir(os.getcwd())
 
-def checkFile():
+def check_and_rename():
 
     for file in os.listdir("."):
         ext = file.split('.')[1]
         newName = '__MINE__'+file
 
-        if ext == 'png' or ext == 'jpg':
-            os.rename(file, file.replace(newName, '', 1))
+        if file.endswith(".png") or file.endswith(".jpg"):
+            os.rename(file, newName)
             print(file)
         else:
             print("|")
-    print(newName)
-
 
 if __name__=='__main__':
-    checkFile()
+    check_and_rename()
 
 # TODO
 # instead of copying have the file rename existing files
