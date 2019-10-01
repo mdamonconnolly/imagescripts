@@ -5,10 +5,11 @@ from PIL import Image, ImageOps
 def checkDir():
     saveToDir = input("Save to new folder ('Y) or save to current directory ('N')?\n")
     if saveToDir == 'Y' or saveToDir == 'y':
-        if os.path.exists(str(os.getcwd) + '\InvertedImages'):
+        if os.path.isdir('InvertedImages'):
             print('Folder already exists')
         else:
-            newDir = os.mkdir('\InvertedImages')
+            newDir = os.mkdir('InvertedImages')
+            print("New Folder Created\n")
 
     elif saveToDir == 'N' or saveToDir == 'n':
         pass
@@ -26,19 +27,15 @@ def invert():
             invertColours = PIL.ImageOps.invert(img)
 
             if promptInput == 'N' or promptInput == 'n':
-                invertColours.save('\InvertedImages\_Inverted_' + file)
+                invertColours.save('_Inverted_' + file)
                 
                 print('Did not overwrite - saved copies')
 
             elif promptInput == 'Y' or promptInput == 'y':
                 print(os.getcwd)
-                invertColours.save('\InvertedImages\_Inverted_' + file)
+                invertColours.save('_Inverted_' + file)
                 #os.remove(file)
                 print('Original files were overwritten with inverted version')
-
-        else:
-            print("file skipped")
-            pass
 
 if __name__=='__main__':
     invert()
