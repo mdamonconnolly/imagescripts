@@ -22,14 +22,13 @@ def invert():
             invertColours = PIL.ImageOps.invert(img)
             newfile = '_inverted_' + file
 
-            """
-            if '_inverted_' in file:
-                newfile = '_original_' + file
-                print(newfile)
-            if '_original_' in file:
-                newfile = '_inverted_' + file
-                print(newfile)
-            """
+            #check prefix
+
+            for i in file:
+                if '_inverted_' in file:
+                    newfile = '_original_' + file[10:]
+
+
             if overWriteQuery == 'n':
                 if saveToDir == 'y':
                     invertColours.save(os.path.join(currentDir + '/InvertedImages', newfile))
@@ -40,6 +39,7 @@ def invert():
             elif overWriteQuery == 'y':
                 if saveToDir == 'y':
                     invertColours.save(os.path.join(currentDir + '/InvertedImages', newfile))
+                    os.file.remove(file)
                 else:
                     invertColours.save(newfile)
                     os.remove(file)
@@ -47,6 +47,7 @@ def invert():
 
 if __name__=='__main__':
     invert()
+
 
 #TODO
 # check if inverted or original already prefixed to name - if so, swap them
