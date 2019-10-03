@@ -3,10 +3,10 @@ from PIL import Image
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--s', help='resize image to 0.25 original size', type=str, action="store_true")
-parser.add_argument('--r', help='rotate by 45 degrees', type=str, action="store_true")
-parser.add_argument('--h', help='flip image horizontally', type=str, action="store_true")
-parser.add_argument('--v', help='flip image vertically', type=str, action="store_true")
+parser.add_argument('-s', '--scale', help='resize image to 0.25 original size', action='store_true')
+parser.add_argument('-r', '--rotate', help='rotate image by 45 degrees', action='store_true')
+parser.add_argument('-h', '--horizontal', help='flip image horizontally', action='store_true')
+parser.add_argument('-v', '--vertical', help='flip image vertically', action='store_true')
 args = parser.parse_args()
 
 class Translate():
@@ -55,7 +55,7 @@ class Translate():
 
 
 if __name__=='__main__':
-    init = Translate()
+    init = Translate(args)
 
 # TODO
 # angle for rotation to be user-defined
