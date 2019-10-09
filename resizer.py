@@ -15,5 +15,5 @@ for file in os.listdir("."):
 
         img.thumbnail((width, height), Image.ANTIALIAS)
         img.save(str(newName))
-        print('Successfully resized {0}'.format(file))
+        print('Successfully resized {0} to {1}%'.format(file, rawPercent))
 
