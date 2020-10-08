@@ -1,0 +1,8 @@
+
+#project specific
+examples/
+output/
+
+#other
+.vscode/
+__pycache__/
