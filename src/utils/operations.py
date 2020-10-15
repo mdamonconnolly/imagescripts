@@ -1,5 +1,12 @@
+"""
+operations.py
+Contains all of the transfomation and overlays etc
+"""
 
 #TODO: Complete re-write of every function. 
+#TODO: Create "generate imageID" function. Generates ID from the date, image type and commissioner name. 
+#TODO: Add Watermark function.
+#TODO: Add Atlas function.
 
 def check_and_rename():
 	"""
@@ -127,18 +134,3 @@ def invert():
 					invertColours.save(newfile)
 					os.remove(file)
 					print('Original files were overwritten to this directory')
-
-
-def vid2gif():
-	"""
-	Converts a video file to a gif.
-	"""
-	path = str(os.getcwd())
-
-	for file in os.listdir("."):
-		if file.endswith(".mp4") or file.endswith(".MP4") or file.endswith(".flv") or file.endswith(".avi"):
-			vid = VideoFileClip(file)
-			vid.write_gif(file.split('.')[0] + '_gif.gif')
-
-
-		print("Successfully converted file(s) to gif format")

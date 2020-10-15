@@ -1,10 +1,14 @@
 # imagescripts
 Basic script to batch operate on images for commissions. 
 
-Basic scripts to operate on images 
+</br></br>
+## Checklist
 - Renamer [ done ]
 - Invert colours [ done ]
 - Resizer [ done ]
+
+</br>
+
 - X/Y flip [ not done ]
 - Qt UI [ not done ]
 - Add watermark [ not done ]
