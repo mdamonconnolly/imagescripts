@@ -1,5 +1,12 @@
+"""
+operations.py
+Contains all of the transfomation and overlays etc
+"""
 
 #TODO: Complete re-write of every function. 
+#TODO: Create "generate imageID" function. Generates ID from the date, image type and commissioner name. 
+#TODO: Add Watermark function.
+#TODO: Add Atlas function.
 
 def check_and_rename():
 	"""
