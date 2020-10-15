@@ -6,90 +6,43 @@ Contains all of the transfomation and overlays etc
 #TODO: Complete re-write of every function. 
 #TODO: Create "generate imageID" function. Generates ID from the date, image type and commissioner name. 
 #TODO: Add Watermark function.
-#TODO: Add Atlas function.
 
-def check_and_rename():
+
+def flip(image, h = False, v = False):
 	"""
-	Renames a selection of images.
-	TODO: Possibly add more options for tagging and so on.
+	Flips the input image
+	:param image: The image to be flipped.
+	:param h: Flip horizontally.
+	:param v: Flip vertically.
 	"""
-	for file in os.listdir("."):
-		newName = '__MINE__' + file
-
-		if file.endswith(".png") or file.endswith(".jpg"):
-			os.rename(file, newName)
+	return
 
 
-def flipHorizontal(self):
-	print('Flip horizontal (empty)')
-
-def flipVertical(self):
-	print('Flip vertical (empty)')
-
-
-def resize():
+def invert(image, **kwargs):
 	"""
-	Resize a group of images.
+	Inverts the image. Inverts in black/white if no arguments are provided.
+	:param image: The image to be inverted.
+	:param kwargs: "R", "G" or "B" to flip a specific channel.  
 	"""
-	rawPercent = int(input("Please enter desired percentage to scale to\n"))
-	path = os.getcwd()
-	percent = rawPercent/100
+	return
 
-	for file in os.listdir("."):
-		if file.endswith(".png") or file.endswith(".jpg"):
-			newName = file.split('.')[0] + '_resized_{0}%.'.format(rawPercent) + file.split('.')[1]
 
-			img = Image.open(path + '\\' + file)
-			width = int(img.size[0] * percent)
-			height = int(img.size[1] * percent)
-
-			img.thumbnail((width, height), Image.ANTIALIAS)
-			img.save(str(newName))
-			print('Successfully resized {0} to {1}%'.format(file, rawPercent))
-
-def invert():
+def atlas(images, keepSquare=False):
 	"""
-	Inverts an png/jpg image.
-	TODO: Add arg to take image location rather than just doing it on all of the images in the selected folder
+	Atlases a bunch of images into 1 larger image.
+	:param images: The images to be atlased together.
+	:param keepSquare: If True, the function will crop images to keep it square.
 	"""
-	imageExt = ".png", ".jpg"
-	overWriteQuery = input("Overwrite existing images? If 'N' selected, the inverted images will be saved as new files: \n Y | N\n")
-	currentDir = os.curdir
-
-	saveToDir = input("Save to new folder ('Y) or save to current directory (leave blank)?\n")
-	if saveToDir == 'y':
-		if os.path.isdir('InvertedImages'):
-			print('Folder already exists')
-		else:
-			newDir = os.mkdir('InvertedImages')
-			print("New Folder Created\n")
+	return
 
 
-	for file in os.listdir("."):
-		if file.endswith(imageExt):
-			img = Image.open(file)
-			invertColours = PIL.ImageOps.invert(img)
-			newfile = '_inverted_' + file
-
-			#check prefix
-
-			for i in file:
-				if '_inverted_' in file:
-					newfile = '_original_' + file[10:]
-
-
-			if overWriteQuery == 'n':
-				if saveToDir == 'y':
-					invertColours.save(os.path.join(currentDir + '/InvertedImages', newfile))
-				else:
-					invertColours.save(newfile)
-				print('Did not overwrite - saved copies')
-
-			elif overWriteQuery == 'y':
-				if saveToDir == 'y':
-					invertColours.save(os.path.join(currentDir + '/InvertedImages', newfile))
-					os.file.remove(file)
-				else:
-					invertColours.save(newfile)
-					os.remove(file)
-					print('Original files were overwritten to this directory')
+def watermark(image, watermark, scale=0.5, offset=(0, 0), tiled=False):
+	"""
+	Watermarks an image.
+	:param image: The image to apply the watermark to.
+	:param watermark: The watermark to apply to the image.
+	:param scale: The scale of the watermark. 1.0 would be covering the entire image.
+	:param offset: For non-tiled. Offset the watermark in x or y axis.
+	:param tiled: If True, the watermark will be tiled across the image. Offset will be ignored.
+	"""
+	return
