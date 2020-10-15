@@ -20,52 +20,11 @@ def check_and_rename():
 			os.rename(file, newName)
 
 
-class Translate():
+def flipHorizontal(self):
+	print('Flip horizontal (empty)')
 
-	"""
-	Image translator.
-	"""
-
-	def __init__(self, args):
-		
-		self.angle = 45
-		self.imageExt = ".png", ".jpg"
-		self.openFile()
-		self.args = args
-	
-	def openFile(self):
-		for self.file in os.listdir("."):
-			if self.file.endswith(self.imageExt):
-				self.img = Image.open(self.file)
-
-		if self.args.scale:
-			self.scale()
-		elif self.args.rotate:
-			self.rotate()
-		elif self.args.horizontal:
-			self.flipHorizontal()
-		elif self.args.vertical:
-			self.flipVertical()
-		else:
-			print('Error: invalid argument selected')
-
-				
-	def scale(self):
-		self.openFile()
-		width, height = img.size
-		img.scale((width/4), (height/4))
-		img.save('_25%_'+file)
-		print('Successfully resized {0}'.format(file) + ' to 25%. ')
-
-	
-	def rotate(self):
-		print('Rotate (empty)')
-
-	def flipHorizontal(self):
-		print('Flip horizontal (empty)')
-
-	def flipVertical(self):
-		print('Flip vertical (empty)')
+def flipVertical(self):
+	print('Flip vertical (empty)')
 
 
 def resize():

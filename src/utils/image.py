@@ -9,6 +9,11 @@ class image():
         self.path = path
         self.name = name
         self.opchain = []
+
+        #transforms
+        self.translate = [0, 0]
+        self.rotate = 0
+        self.scale = 100
         
 
     #Op chain functions
