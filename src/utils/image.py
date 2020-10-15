@@ -12,7 +12,7 @@ class image():
         
 
     #Op chain functions
-    def add_op(self, operation):
+    def add_op(self, operation, index):
         self.opchain.append(operation)
 
     def remove_op(self, index):
@@ -38,6 +38,19 @@ class image():
 
         self.details[key][args[0]]
 
+    def save_opchain(self, opchain, file=None):
+        """
+        Saves the opchain to a file locally, for fast use.
+        :param opchain: the opchain to save.
+        :param file: the file to write to.
+        """
+
+    def load_opchain(self, opchain, file):
+        """
+        Loads opchain from file.
+        :param opchain: the name of the opchain to load.
+        :param file: the file to load the opchain from.
+        """
 
     details = {
         "name" : "",
